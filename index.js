@@ -131,7 +131,9 @@ async function fastifyStatic (fastify, opts) {
       const roots = Array.isArray(sendOptions.root) ? sendOptions.root : [sendOptions.root]
       for (let rootPath of roots) {
         rootPath = rootPath.split(path.win32.sep).join(path.posix.sep)
-        !rootPath.endsWith('/') && (rootPath += '/')
+        if (!opts.rootAvoidTrailingSlash) {
+          !rootPath.endsWith('/') && (rootPath += '/')
+        }
         const files = await glob('**/**', {
           cwd: rootPath, absolute: false, follow: true, nodir: true, dot: opts.serveDotFiles
         })
