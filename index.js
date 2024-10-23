@@ -133,7 +133,7 @@ async function fastifyStatic (fastify, opts) {
       for (let rootPath of roots) {
         rootPath = rootPath.split(path.win32.sep).join(path.posix.sep)
 
-        const shouldAddSlash = opts.rootAvoidTrailingSlash === undefined ? false : opts.rootAvoidTrailingSlash
+        const shouldAddSlash = opts.rootAvoidTrailingSlash === undefined ? true : opts.rootAvoidTrailingSlash
         if (shouldAddSlash) {
           !rootPath.endsWith('/') && (rootPath += '/')
         }
