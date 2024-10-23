@@ -1,6 +1,6 @@
 {
   "name": "@avodah-engineering/fastify-static",
-  "version": "7.0.8",
+  "version": "7.0.9",
   "description": "Plugin for serving static files as fast as possible.",
   "main": "index.js",
   "type": "commonjs",
